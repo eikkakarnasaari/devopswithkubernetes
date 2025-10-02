@@ -4,6 +4,7 @@ const router = new Router();
 const port = Number(Deno.env.get("PORT") || 3000);
 
 router.get("/", (ctx) => {
+  ctx.response.headers.set("Content-Type", "text/html");
   ctx.response.body = "Hello world";
 });
 
