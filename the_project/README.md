@@ -1,6 +1,6 @@
 # Todo App
 
-## 1.5
-Deploy with `kubectl apply -f manifests/deployment.yaml`
-Check deployment with e.g. `kubectl port-forward todo-app-dep-75f9778b8f-9d4pz 3000:4000`
+## 1.6
+Start the cluster with `k3d cluster create --port 8082:30080@agent:0 -p 8081:80@loadbalancer --agents 2`
+Deploy with `kubectl apply -f manifests/` to deploy `service.yaml` and `deployment.yaml`
 Check that `Hello world` is visible via `http://localhost:3000/` in the browser
