@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: logoutput-dep
+  name: log-output-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: logoutput
+      app: log-output
   template:
     metadata:
       labels:
-        app: logoutput
+        app: log-output
     spec:
       containers:
-      - name: logoutput
-        image: eokarnas/dwk-1.1
+      - name: log-output
+        image: eokarnas/dwk-1.7

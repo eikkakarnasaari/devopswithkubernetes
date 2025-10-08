@@ -1,6 +1,7 @@
 # Log output app
 
-Deploy with `kubectl apply -f manifests/deployment.yaml`
+## 1.7
 
-Follow the logs with `kubectl logs -f logoutput-dep-<identifier>`
+Deploy with `kubectl apply -f manifests/`
 
+Check that `localhost:8081/status` responds with the current string

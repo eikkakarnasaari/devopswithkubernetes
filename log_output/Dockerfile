@@ -1,11 +1,11 @@
-FROM node:alpine
+FROM denoland/deno:alpine
 
 WORKDIR /app
 
-COPY package* ./
+COPY deno.json .
 
-RUN npm ci
+RUN DENO_FUTURE=1 deno install
 
 COPY . .
 
-CMD ["npm", "start"]
+CMD ["run", "--allow-env", "--allow-net", "index.js"]
