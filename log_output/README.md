@@ -1,3 +1,3 @@
 # Log output app
 
-Deploy with `kubectl create deployment log-output-dep --image=eokarnas/dwk-log-output:1.1`
+Deploy with `kubectl apply -f manifests/deployment.yaml`
