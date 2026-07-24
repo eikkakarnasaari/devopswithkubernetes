@@ -1,3 +1,21 @@
+import { Hono } from "@hono/hono";
+
+const app = new Hono();
+
+app.get("/", (c) => {
+  return c.html(`
+  <!DOCTYPE html>
+    <html>
+      <head>
+        <title>DevOps with Kubernetes</title>
+      </head>
+       <body>
+         <h1>Todo app</h1>
+       </body>
+      </html>
+    `);
+});
+
 const options = {
   port: Number(Deno.env.get("PORT") ?? "8080"),
   onListen({ _hostname, port }) {
@@ -5,6 +23,4 @@ const options = {
   },
 };
 
-Deno.serve(options, (_req) => {
-  return new Response("Hello, World!");
-});
+Deno.serve(options, app.fetch);
