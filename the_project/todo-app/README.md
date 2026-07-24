@@ -1,3 +1,3 @@
 # Todo app
 
-Deploy with `kubectl create deployment todo-app-dep --image=eokarnas/dwk-todo-app:1.2`
+Deploy with `kubectl apply -f manifests/deployment.yaml`
