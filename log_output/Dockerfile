@@ -11,4 +11,4 @@ RUN deno ci --prod --skip-types
 # Then copy the rest of the source
 COPY . .
 
-CMD ["deno", "run", "--allow-net", "main.js"]
+CMD ["deno", "run", "--allow-net", "--allow-env", "main.js"]
