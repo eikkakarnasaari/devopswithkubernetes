@@ -12,6 +12,17 @@ spec:
       labels:
         app: log-output
     spec:
+      volumes:
+        - name: shared-file
+          emptyDir: {}
       containers:
-        - name: log-output
-          image: eokarnas/dwk-log-output:1.7
+        - name: log-output-generator
+          image: eokarnas/dwk-log-output-generator:1.10
+          volumeMounts:
+            - name: shared-file
+              mountPath: /app/files
+        - name: log-output-reader
+          image: eokarnas/dwk-log-output-reader:1.10
+          volumeMounts:
+            - name: shared-file
+              mountPath: /app/files
