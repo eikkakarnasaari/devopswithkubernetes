@@ -11,4 +11,4 @@ RUN deno ci --prod --skip-types
 # Then copy the rest of the source
 COPY . .
 
-CMD ["deno", "run", "--allow-env", "--allow-net", "app-run.js"]
+CMD ["deno", "run", "--allow-env", "--allow-net", "--allow-write", "app-run.js"]

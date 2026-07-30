@@ -6,7 +6,9 @@ const app = new Hono()
 app.get("/log", async (c) => {
   let text;
   try {
-    text = await Deno.readTextFile("/app/files/log.txt");
+    const log = await Deno.readTextFile("/app/files/log.txt");
+    const count = await Deno.readTextFile("/app/files/count.txt");
+    text = `${log}Ping / Pongs: ${count}`;
   } catch (_error) {
     text = "";
   }

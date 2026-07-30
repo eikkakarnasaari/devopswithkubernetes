@@ -14,15 +14,18 @@ spec:
     spec:
       volumes:
         - name: shared-file
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: image-claim
       containers:
         - name: log-output-generator
-          image: eokarnas/dwk-log-output-generator:1.10
+          image: eokarnas/dwk-log-output-generator:1.11
+          imagePullPolicy: Always
           volumeMounts:
             - name: shared-file
               mountPath: /app/files
         - name: log-output-reader
-          image: eokarnas/dwk-log-output-reader:1.10
+          image: eokarnas/dwk-log-output-reader:1.11
+          imagePullPolicy: Always
           volumeMounts:
             - name: shared-file
               mountPath: /app/files

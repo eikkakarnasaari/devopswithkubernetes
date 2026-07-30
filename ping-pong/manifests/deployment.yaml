@@ -12,9 +12,17 @@ spec:
       labels:
         app: ping-pong
     spec:
+      volumes:
+        - name: shared-file
+          persistentVolumeClaim:
+            claimName: image-claim
       containers:
         - name: ping-pong
-          image: eokarnas/dwk-ping-pong:1.9
+          image: eokarnas/dwk-ping-pong:1.11
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: shared-file
+              mountPath: /app/files
           env:
-          - name: PORT
-            value: "3001"
+            - name: PORT
+              value: "3001"
